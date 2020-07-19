@@ -1,0 +1,486 @@
+$desk: 376px;
+$BrightRed: hsl(12, 88%, 59%);
+$DarkBlue: hsl(228, 39%, 23%);
+$DarkGrayishBlue: hsl(227, 12%, 61%);
+$VeryDarkBlue: hsl(233, 12%, 13%);
+$VeryPaleRed: #ffefeb;
+$VeryLightGray: hsl(0, 0%, 98%);
+
+@mixin desk {
+    @media screen and (min-width: #{$desk}) {
+        @content
+    } 
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // border: 1px solid red;
+}
+
+.btn {
+    background-color: $BrightRed;
+    border: none;
+    border-radius: 20px;
+    color: $VeryLightGray;
+    padding: 1rem 3rem;
+    margin: 2rem 0;
+    box-shadow: rgb(190, 189, 189) 3px 2px 2px;
+    outline: none;
+}
+.btn:hover {
+    background-color: hsl(12, 81%, 64%);
+}
+.background {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(95, 95, 95);
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    
+}
+a {
+    text-decoration: none;
+    color: $DarkGrayishBlue;
+}
+
+.bg-img {
+    position: absolute;
+    top: 0rem;
+    rotate: 180deg;
+    z-index: -2;
+    width: 98vw;
+}
+.content-center {
+    max-width: 1440px;
+    
+}
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7rem;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 40;
+    background-color: white;
+    @include desk {
+        justify-content: space-between;
+        padding: 0 5rem;
+        max-width: 1440px;
+        background-color: transparent;
+    }
+
+
+    &__nav {
+        height: 0px;
+        overflow: hidden;
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            z-index: 99px;
+            top: 10rem;
+            background-color: white;
+            width: 90vw;
+
+        @include desk {
+            height: 7rem;
+            position: relative;
+            top: 0;
+            flex-direction: row;
+            overflow: visible;
+            width: 50%;
+            z-index: 40; 
+            background-color: transparent 
+        }
+        
+        li {
+            list-style-type: none;
+            a {
+                @include desk {
+                    font-size: 1.2rem;
+                    padding: 1rem 1.5rem;   
+                }
+            }
+            a:hover {
+                color: $DarkBlue;
+            }
+        }
+    }
+
+    button  {
+        display: none;
+        @include desk {
+            display: block;
+        }
+    }
+    &__hamb {
+        @include desk {
+            display: none;
+        }
+    }
+}
+.show-nav {
+    height: 40vh;
+    overflow: visible;
+   
+   }
+.better-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  @include desk {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin: 0 auto;
+      margin-top: 5rem;
+      padding: 0 5rem;
+      max-width: 1440px;
+      
+  }
+
+    &__img  {
+        img {
+            width: 20rem;
+            height: 20rem;
+        }
+        @include desk {
+            width: 45rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            img {
+                width: 80%;
+                height: 80%;
+                
+            }
+        }
+        
+    }
+    &__txt {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            color: $DarkBlue;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 900;
+        }
+        p {
+            margin-top: 2rem;
+            color: $DarkGrayishBlue;
+            text-align: center;
+            line-height: 2rem;
+            width: 80vw;
+            font-size: 1.5rem;
+        }
+        @include desk {
+            width: 45vw;
+            align-items: flex-start;
+            h1 {
+                text-align: left;
+                font-size: 4rem;
+            }
+            p {
+                text-align: left;
+                width: 80%
+            }
+        }
+    }
+}
+
+.different {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 5rem;
+    
+
+    @include desk {
+        max-width: 1440px;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 15rem;
+        justify-content: space-between;
+        padding: 0 5rem;
+    }
+
+    &__question {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h1 {
+            color: $DarkBlue;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 900;
+        }
+        p {
+            margin-top: 2rem;
+            color: $DarkGrayishBlue;
+            text-align: center;
+            line-height: 2rem;
+            width: 80vw;
+            font-size: 1.5rem;
+        }
+        @include desk {
+            width: 40vw;
+            
+            h1 {
+                font-size: 4rem;
+                text-align: left;
+
+            }
+            p {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+
+    &__answer {
+        margin-top: 3rem;
+        // width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 1rem;
+
+        h3 {
+            background-color: $VeryPaleRed;
+            padding: 0.5rem 0;
+            margin: auto 0;
+            border-radius: 20px 0 0 20px;
+            color: $DarkBlue;
+            display: block;
+            margin-left: 0.5rem;
+            span {
+                background: $BrightRed;
+                margin-right: 0.5rem;
+                padding: 0.5rem 1.2rem;
+                border-radius: 20px;
+                color: $VeryLightGray;
+            }
+        }
+        p {
+            margin: 1rem 0rem 0 1.5rem;
+            color: $DarkGrayishBlue;
+            text-align: left;
+            width: 90%;
+            font-size: 1.2rem;
+            // padding-right: 1rem;
+            height: 10rem;
+
+        }
+        @include desk {
+            margin-top: 0;
+            width: 40vw;
+            align-items: flex-end;
+            padding-left: 5rem;
+            h3 {
+                width: 100%;
+                background-color: white;
+                margin: 0px;
+                
+            }
+            p {
+                width: 60%;
+                margin-left: 4.4rem;
+            }
+        }
+    }
+}
+
+.reviews {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+            color: $DarkBlue;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 900;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: $VeryLightGray;
+        width: 90vw;
+        margin-top: 5rem;
+        position: relative;
+        padding-bottom: 2rem;
+
+        
+
+        img {
+            width: 5rem;
+            height: 5rem;
+            position: absolute;
+            top: -30px;
+        };
+
+        h3 {
+            margin-top: 5rem;
+            color: $DarkGrayishBlue;
+            margin-bottom: 2rem;
+        }
+        p {
+            text-align: center;
+            width: 70vw;
+            color: $DarkGrayishBlue;
+        }
+        @include desk {
+            width: 35vw;
+            p{
+                width: 100%;
+                height: 4rem;
+            }
+        }
+    }
+}
+.simplify {
+    margin-top: 5rem;
+    background: $BrightRed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    h1 {
+        text-align: center;
+        color: $VeryLightGray;
+        font-size: 3rem;
+        padding: 4rem 2rem;
+    }
+    .specBtn {
+        background-color: $VeryLightGray;
+        color: $BrightRed;
+        outline: none;
+
+    }
+    &__bg {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        @include desk {
+            display: none;
+        }
+        
+    }
+    @include desk {
+        // max-width: 1440px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0  5rem;
+        h1 {
+            width: 50%;
+            text-align: left;
+
+            
+        }
+    }
+}
+
+.footer {
+    background-color: $VeryDarkBlue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__form {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90vw;
+        input {
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            outline: none;
+        }
+        .form-btn {
+            background-color: $BrightRed;
+            border: none;
+            border-radius: 20px;
+            color: $VeryLightGray;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            outline: none;
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        width: 90vw;
+        color: $VeryLightGray;
+        ul {
+            list-style-type: none;
+            li {
+                padding: 1rem 0;
+            }
+        }
+    }
+    &__links {
+        display: flex;
+        justify-content: space-around;
+        width: 90vw;
+        margin: 3rem 0;
+        img {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    &__logo {
+        img {
+            width: 5rem;
+        }
+        margin: 5rem;
+    }
+    
+    .logo-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p {
+        color: $VeryLightGray;
+        margin: 2rem 0;
+    }
+    @include desk {
+        flex-direction: row;
+        align-items: center;
+        padding: 5rem;
+        position: relative;
+        &__links {
+            width: 25vw;
+            margin: 1rem;
+        }
+        &__logo {
+            margin: 1rem;
+        }
+       
+        &__copy {
+            position: absolute;
+            bottom: 2rem;
+            left: 7rem
+        }
+    }
+}
